@@ -1,0 +1,509 @@
+<?php
+require dirname(__FILE__) . '/_config.php';
+require $helperBase . '/main.php';
+$clickid = !empty($_GET['clickid']) ? $_GET['clickid'] : null;
+$clickid = htmlspecialchars($clickid);
+$code = !empty($_GET['code']) ? $_GET['code'] : null;
+if (!$code) {
+	$code = $offer_code;
+}
+if ($code && !$click_id) {
+	$code = htmlspecialchars($code);
+	$clickid = createClick($baseUrl, $code);
+}
+?><!doctype html>
+<html lang="rs">
+    <head>
+    	<!-- Title -->
+        <title>Immunodon</title>
+        <!-- Meta -->
+        <meta charset="utf-8" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Favicon -->
+        <link rel="icon" href="./img/favicon.png" />
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext" />
+        <!-- Style -->
+        <link rel="stylesheet" href="./css/popup.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/footer.css" />
+        <!-- Script -->
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/owl.carousel.min.js"></script>
+        <script src="./js/popup.js"></script>
+        <script> $(function() { KMA.initCallback(3000) }) </script>          
+    </head>
+    <body>
+        <section class="block1 overflow-hidden">
+            <div class="container">
+                <div class="left">
+                    <h1 class="b1-header"><span class="b1-header__small">Immunodon –</span> POKRETAČ JAČANJA IMUNOG SISTEMA</h1>
+                    <div class="b1-package">
+                        <img src="img/pack.png" alt="">
+                    </div>
+                    <div class="b1-list-container">
+                        <ul class="b1-list">
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Jača imuni sistem</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Brani od virusa i patogena</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Izbacuje toksine iz organizma</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Štiti od gripa i prehlade</div>
+                            </li>
+                        </ul>
+                        <div class="b1-progress">
+                            <div class="b1-progress__header">PAŽNJA!</div>
+                            <div class="b1-progress__text">Samo <div class="b1-progress__bar"><span class="low">10%</span></div> lagera je još uvek dostupno</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="b1-action pc">
+                    <div class="b1-action__sticker"> VIROLOŠKO UDRUŽENJE:  <span class="purple">UNAPREĐENJE NAKON PRVE NEDELJE</span></div>
+                    <form class="main-order-form b1-action-form">
+                        <div class="b1-action-form__sticker">
+                            <div class="b1-action-form__sticker--big"><span class="b1-action-form__sticker-head--big">NOVA CENA</span>2570<span class="price-amount">RSD</span></div>
+                            <div class="b1-action-form__sticker--sm">-50%</div>
+                        </div>
+                        <div class="b1-action-form__price">STARA CENA: 5140RSD</div>
+                        <div class="b1-action-form__count">NA LAGERU PREOSTALO
+                            <span class="b1-action-form__counter">20</span>kom
+                        </div>
+                        <label class="b1-action-form__label">
+                            <div class="b1-action-form__lbl">Ime i Prezime</div>
+                            <input type="text" class="input order_data required" name="name" placeholder="Ime i Prezime" required="required" onkeypress="return /[a-z šđčćž-абвгдђежзијклљмнњопрстћуфхцчџш]/i.test(event.key)">
+                        </label>
+                        <label class="b1-action-form__label">
+                            <div class="b1-action-form__lbl">Broj telfona: </div>
+                            <input input minlength="7" type="tel" class="input order_data required" name="phone" placeholder="Broj telefona" required="required" onkeypress="return /[0-9 -\/]/i.test(event.key)">
+                        </label>
+                        <button class="button buynow">NARUČI</button>
+                        <input type="hidden" name="l" value="" />
+                        <input type="hidden" name="" value="=" />
+                    </form>
+                    <div class="b1-action__data-protection">
+                        <img src="img/lock.png" alt=""> Vaši podaci su strogo poverljivi!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block2 overflow-hidden">
+            <div class="container">
+                <h2 class="block2__header"><span class="block2__header--big">KAKO ZNATE DA VAM JE </span> POTREBNO NEŠTO DA OJAČATE IMUNI SISTEM?</h2>
+                <div class="block2-list">
+                    <div class="block2-list__item">Ukoliko postoji  <span class="red">epidemiološki
+                        <br>
+                        rizik </span>
+                    </div>
+                    <div class="block2-list__item"><span class="red">Ukoliko živite  <br> u zagađenoij sredini </span></div>
+                    <div class="block2-list__item">Ukoliko ste <span class="red">izloženi <br>fizičkim naporima </span> i stresu</div>
+                    <div class="block2-list__item">Ukoliko <span class="red">vam manjka<br>
+                        fizičke aktivnosti</span>
+                    </div>
+                    <div class="block2-list__item">Ukoliko ste   <br>
+                        <span class="red">rekonvalescent</span>
+                    </div>
+                    <div class="block2-list__item"><span class="red">Ukoliko </span>ste često<br>
+                        bolesni ili prehlađeni
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block3 overflow-hidden">
+            <div class="container">
+                <h3 class="b3-header">
+                    <span class="b3-header__big" style='font-size: 1.2em'>ZBOG ČEGA BI TREBALO DA</span> OJAČATE SVOJ IMUNITET?
+                </h3>
+                <div class="b3-list">
+                    <div class="b3-list__item">
+                        <div class="b3-list__img">
+                            <img src="img/list.png" alt="">
+                        </div>
+                        <div class="b3-list__tx">Da sprečite virusne infekcije </div>
+                    </div>
+                    <div class="b3-list__item">
+                        <div class="b3-list__img">
+                            <img src="img/list.png" alt="">
+                        </div>
+                        <div class="b3-list__tx">Da povećate vitalnost i otpornost</div>
+                    </div>
+                    <div class="b3-list__item">
+                        <div class="b3-list__img">
+                            <img src="img/list.png" alt="">
+                        </div>
+                        <div class="b3-list__tx">Da smanjite rizik od pojave depresije</div>
+                    </div>
+                    <div class="b3-list__item">
+                        <div class="b3-list__img">
+                            <img src="img/list.png" alt="">
+                        </div>
+                        <div class="b3-list__tx">Da detoksikujete organizam</div>
+                    </div>
+                </div>
+                <div class="b3-pack"></div>
+                <div class="b3-sticker">ASOCIJACIJA VIROLOGA SRBIJE: Poboljšanja već posle 7 dana!</div>
+            </div>
+        </section>
+
+        <section class="block4 overflow-hidden">
+            <br> <br> <br> <br>
+            <div class="container">
+                <div class="b4-header">
+                    <div class="b4-header__big">ORIGINALNA RECEPTURA</div>
+                    Aktivni sastojci
+                </div>
+                <div class="b4-list">
+                    <div class="b4-list__item">
+                        <div class="b4-list__img">
+                            <img src="img/lucerka2.png" alt="">
+                        </div>
+                        <div class="b4-list__header">Lucerka</div>
+                        <div class="b4-list__text">Lucerka sadrži u sebi moćne antioksidante i vekovima je korišćen u tradicionalnoj medicini kao lek protiv gripa i bronhijalnih oboljenja.</div>
+                    </div>
+                    <div class="b4-list__item">
+                        <div class="b4-list__img">
+                            <img src="img/kopriva.png" alt="">
+                        </div>
+                        <div class="b4-list__header">Kopriva</div>
+                        <div class="b4-list__text">Kopriva povećava broj belih krvnih zrnaca koja se bore sa svim uzročnicima infekcija</div>
+                    </div>
+                    <div class="b4-list__item">
+                        <div class="b4-list__img">
+                            <img src="img/dusica.png" alt="">
+                        </div>
+                        <div class="b4-list__header">Majčina Dušica</div>
+                        <div class="b4-list__text">Majčina Dušica poseduje snažna natibakterijska, antiseptička i fungicidna svojstva. Takođe, odličan je kao agens za čišćenje krvi.</div>
+                    </div>
+                </div>
+                <div class="b4-pack"></div>
+            </div>
+        </section>
+
+        <section class="block5 overflow-hidden">
+            <div class="container">
+                <div class="right">
+                    <div class="b5-header">
+                        <div class="b5-header__big" style='font-size: 1.9em'>Zahvaljujući dozi</div>
+                    </div>
+                    <div class="b5__tablets">Biljne Kapi su idealan način uzimanja aktivnih sastojaka jer pružaju dovoljnu količinu, bez mogućnosti predoziranja.</div>
+                    <div class="b5-list">
+                        <div class="b5-list__item">
+                            <div class="b5-list__img">
+                                <img src="img/tick.png" alt="">
+                            </div>
+                            <div class="b5-list__text">Netoksičan i veganski proizvod</div>
+                        </div>
+                        <div class="b5-list__item">
+                            <div class="b5-list__img">
+                                <img src="img/tick.png" alt="">
+                            </div>
+                            <div class="b5-list__text">Ne iritira želudac i creva</div>
+                        </div>
+                        <div class="b5-list__item">
+                            <div class="b5-list__img">
+                                <img src="img/tick.png" alt="">
+                            </div>
+                            <div class="b5-list__text">Sastojci koji se lako absorbuju</div>
+                        </div>
+                    </div>
+                    <div class="b5-footer">
+                        <div class="b5-text">
+                            <div class="b5-text__top">Preporučena dnevna doza za odrasle</div>
+                            <div class="b5-text__bottom">3 puta po jedna supena kasika </div>
+                        </div>
+                        <a class="b5-btn" href="./pdf/Immunodon-InstructionsWeb.pdf" target=_blank>
+                            <img src="img/arrow.png" alt="">
+                            Uputstvo
+                        </a>
+                    </div>
+                    <div class="b5__pack"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block6 overflow-hidden">
+            <div class="container">
+                <div class="right">
+                    <div class="b6__header" style="font-size: 3em">Mišljenje stručnjaka</div>
+                    <div class="b6__text" style="font-size: 1.5em">
+                        <p>Naš imuni sistem treba da bude aktivan tokom cele godine a ne samo u toku jesenjih i zimskih meseci. Bakterijske i virusne infekcije su moguće tokom cele godine, i svi ti patogeni konstantno testiraju naš imuni odgovor. Stoga, najbolje je ojačati imuni sistem da bude u stanju da se izbori sa svim opasnostima tokom cele godine, i time zaštiti ceo organizam od svih vrsta infekcija.</p>
+                        <p>Tržište je trenutno preplavljeno proizvodima koji se reklamiraju kao pojačivači imuniteta, a u stvari to nisu. Moja preporuka je Immunodon, prirodni preparat na bazi zove, đumbira i karanfilića, koji se uzima svakodnevno i pokazao se kao odličan i vrlo efektivan za odrasle osobe.</p>
+                        <div class="b6__prof">
+                            <div class="b6__prof-txt"> <br>
+                                 <br>
+                                
+                            </div>
+                            <div class="b6__sign"></div>
+                        </div>
+                    </div>
+                    <button class="button __js-scroll-form">Poručite odmah</button>
+                </div>
+                <div class="b6__pack"></div>
+            </div>
+        </section>
+
+        <section class="block7 overflow-hidden">
+            <div class="container">
+                <div class="b7-header"><span class="b7-header--big">U toku jedne godine, preko 3000 ljudi je postalo zdravije </span> zahvaljujući Immunodon-u</div>
+                <div class="review-list owl-carousel owl-theme" id="comment-crousel">
+                    <div class="review-list__item">
+                        <div class="review-list__header">Petrović Ana</div>
+                        <div class="review-list__content">
+                            <div class="review-list__avatar">
+                                <img src="img/rev1.png" alt="">
+                            </div>
+                            <div class="review-list__text">Svaki moj dan je jurnjava. Posao, kuća, obaveze... Konstantno sam pod stresom. Kada uzmem svoju dnevnu dozu Immunodon-a, osećam se ponovo spremna da nastavim sa jurnjavom!</div>
+                        </div>
+                    </div>
+                    <div class="review-list__item">
+                        <div class="review-list__header">Šarić Marija</div>
+                        <div class="review-list__content">
+                            <div class="review-list__avatar">
+                                <img src="img/rev2.png" alt="">
+                            </div>
+                            <div class="review-list__text">Trudim se da živim zdravo, ali živim u zagađenoj sredini i jedem zagađenu hranu tako da je to gotovo nemoguće. Zahvaljujući Immunodon-u, sve prepreke nestaju i uspevam da ostanem zdrava.</div>
+                        </div>
+                    </div>
+                    <div class="review-list__item">
+                        <div class="review-list__header">Jozić Leposava</div>
+                        <div class="review-list__content">
+                            <div class="review-list__avatar">
+                                <img src="img/rev3.png" alt="">
+                            </div>
+                            <div class="review-list__text">Pored trenutne pandemije, zabrinjavalo me je generalno stanje mog zdravlja. Posle samo 7 dana korišćenja Immunodon-a, osećam da imam mnogo više energije, i ne brinem više kao pre.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block8 overflow-hidden">
+            <div class="container">
+                <div class="b8-container">
+                    <div class="b8-wrap">
+                        <div class="b8__header">Pazite se lažnjaka!</div>
+                        <div class="b8__text">Do Marta ove godine, registrovali smo pojavu 136 falsifikovanih proizvoda koji su se reklamirali ako Immunodon! Obratite pažnju na lažne proizvode, pošto oni mogu da budu i veoma štetni po vaše zdravlje. Originalčni proizvod možete kupiti samo na ovom sajtu! Kupite Immunodon ovde, i uživajte u 100% originalnom i efikasnom proizvodu!</div>
+                        <div class="b8__pack"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block9 overflow-hidden">
+            <div class="container">
+                <div class="b9__header">Kako da naručim?</div>
+                <div class="b9-list">
+                    <div class="b9-list__item">
+                        <div class="b9-list__img">
+                            <img src="img/s1.png" alt="">
+                        </div>
+                        <div class="b9-list__header">1. korak</div>
+                        <div class="b9-list__text">Naručite proizvod tako što ćete popuniti formular ispod</div>
+                    </div>
+                    <div class="b9-list__item">
+                        <div class="b9-list__img">
+                            <img src="img/s2.png" alt="">
+                        </div>
+                        <div class="b9-list__header">2. korak</div>
+                        <div class="b9-list__text">Naš operater će vas kontaktirati u toku radnih sati</div>
+                    </div>
+                    <div class="b9-list__item">
+                        <div class="b9-list__img">
+                            <img src="img/s4.png" alt="">
+                        </div>
+                        <div class="b9-list__header">3. korak</div>
+                        <div class="b9-list__text">Pažljivo ćemo upakovati i poslati vašu narudžbinu u toku istog dana</div>
+                    </div>
+                    <div class="b9-list__item">
+                        <div class="b9-list__img">
+                            <img src="img/s3.png" alt="">
+                        </div>
+                        <div class="b9-list__header">4 korak</div>
+                        <div class="b9-list__text">Platićete pošiljku pouzećem</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="block1 overflow-hidden">
+            <div class="container">
+                <div class="left">
+                    <h1 class="b1-header"><span class="b1-header__small">Immunodon -</span>recept za jak imuni sistem</h1>
+                    <div class="b1-package">
+                        <img src="img/pack.png" alt="">
+                    </div>
+                    <div class="b1-list-container">
+                        <ul class="b1-list">
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Ojačava imuni sistem</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Bori se protiv virusa i patogena</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Vrši detoksikaciju organizma</div>
+                            </li>
+                            <li class="b1-list__item">
+                                <div class="b1-list__img">
+                                    <img src="img/list1.png" alt="">
+                                </div>
+                                <div class="b1-list__tx">Štiti od gripa i prehlade</div>
+                            </li>
+                        </ul>
+                        <div class="b1-progress js-scroll-form">
+                            <div class="b1-progress__header">Pažnja!</div>
+                            <div class="b1-progress__text">Samo <div class="b1-progress__bar"><span class="low">10%</span></div> lagera je još uvek dostupno</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="b1-action">
+                    <div class="b1-action__sticker">VIROLOŠKO UDRUŽENJE:  <span class="purple">Poboljšanje nakon prve nedelje </span></div>
+                    <form class="main-order-form b1-action-form js-form-line-scroll">
+                        <div class="b1-action-form__sticker">
+                            <div class="b1-action-form__sticker--big"><span class="b1-action-form__sticker-head--big">NOVA CENA: </span>2570<span class="price-amount">RSD</span></div>
+                            <div class="b1-action-form__sticker--sm">-50%</div>
+                        </div>
+                        <div class="b1-action-form__price">STARA CENA: 5140RSD</div>
+                        <div class="b1-action-form__count">NA LAGERU PREOSTALO:
+                            <span class="b1-action-form__counter">20</span>kom
+                        </div>
+                        <label class="b1-action-form__label">
+                            <div class="b1-action-form__lbl">Ime i Prezime</div>
+                            <input type="text" class="input order_data required" name='name' placeholder="Ime i Prezime" required="required" onkeypress="return /[a-z šđčćž-абвгдђежзијклљмнњопрстћуфхцчџш]/i.test(event.key)">
+                        </label>
+                        <label class="b1-action-form__label">
+                            <div class="b1-action-form__lbl">Broj telefona: </div>
+                            <input type="tel" minlength="7" class="input order_data required" name="phone" placeholder="Broj telefona" required="required" onkeypress="return /[0-9 -\/]/i.test(event.key)">
+                        </label>
+                        <button class="button buynow">NARUČI</button>
+                        <input type="hidden" name="l" value="" />
+                        <input type="hidden" name="" value="=" />
+                    </form>
+                    <div class="b1-action__data-protection">
+                        <img src="img/lock.png" alt=""> Vaši podaci su strogo poverljivi!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<footer class="__footer ptb-30">
+		    <div class="contain">
+		        <p class="copyright t-c"><strong>Copyright <script>document.write(new Date().getFullYear())</script> &#169;MEZATONE. All Rights Reserved</strong></p>
+				<p>
+                    These statements have not been evaluated by the Food and Drug Administration and are for informational
+                    purposes only. They should not be considered medical advice. Always consult a doctor for medical advice. This
+                    product is not intended to diagnose, treat, cure, or prevent any disease.
+                    </p>
+                    <p>None of these men were paid any money for their endorsement. Individual results vary.</p>
+		        <p class="t-uc t-c">
+		            <a href="doc/terms.html" target="_blank">Uslovi Korišćenja</a>
+		            <span class="sep"> | </span>
+		            <a href="doc/privacy.html" target="_blank">Politika Privatnosti</a>
+		        </p>
+		        <p class="t-c fz-small">Klikom na dugme «poručiti» potvrdjujete da ste pročitali <a href="doc/privacy.html" target="_blank">« Politika Privatnosti »</a> i dali pristanak na obradu vaših ličnih podataka</p>
+		    </div>
+		</footer>
+
+
+
+
+        <!-- KMA popup trigger -->
+        <div id="kmacb" class="kmacb__manager kmacb__manager-woman1-th" style="display: none;">
+            <a href="#" modal="kmacb-form">
+                <div class="kmacb__manager-circle"></div>
+                <div class="kmacb__manager-fill"></div>
+                <div class="kmacb__manager-border"></div>
+                <div class="kmacb__manager-img"></div>
+            </a>
+        </div>
+        <!-- KMA popup -->
+        <div id="kmacb-form" class="modal kmacb-form kmacb-form2" style="display: none;">
+            <div class="modal-block modal-top modal-left">
+                <div class="title">
+                    <a class="icon-close"></a>DALI VAM ODGOVARA PONUDA?
+                    <div class="kmacb-form-rectangle"></div>
+                </div>
+                <div class="content">
+                    <div class="padding">
+                        <p>Reći ćemo vam sve o ovom proizvodu, ponuditi vam najpovoljnije uslove i pružiti vam relevantne promotivne ponude!</p>
+
+                        <form   method="post" 
+                                action="newthankyou.php" 
+                                class="main-order-form popup-m1-form" 
+                                onsubmit="return false;">
+
+                            <input type="hidden" name="from_mobiglide_lander" value="1">
+                            <input type="hidden" name="clickid" value="<?php echo $clickid; ?>">
+                            <input type="hidden" name="offer_code" value="<?php echo $offer_code; ?>">
+                            <input name="other[site_name]" type="hidden" value="immunodon.com">
+
+                            <input  type="text" 
+                                    name="name" 
+                                    placeholder="Ime i Prezime" 
+                                    required="required" 
+                                    onkeypress="return /[a-z šđčćž-абвгдђежзијклљмнњопрстћуфхцчџш]/i.test(event.key)" />
+
+
+
+                            <input  type="text" 
+                                    name="phone" 
+                                    value="" 
+                                    minlength="7"
+                                    placeholder="Broj telefona" 
+                                    oldvalue="" 
+                                    required="required" 
+                                    onkeypress="return /[0-9 -\/]/i.test(event.key)" />        
+                    
+                            <input type="submit" value="POZOVITE ME" />
+
+                            <input type="hidden" name="is_popup" value="1" />
+                            <input type="hidden" name="from_recall_button" value="0" />
+                            <input type="hidden" name="form_id">
+                            <input type="hidden" name="l" value="" />
+                            <input type="hidden" name="" value="" />
+                        </form>                        
+                        <p class="kmacb-form-clock">Nas operater će vas nazvati za 15-30 minuta</p>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+        <!-- Script -->
+        <script>var phonePrefix = '+381';</script>
+        <script>var comebackerFormId = '4';</script>
+        <script src="./js/phonePrefix.js"></script>       
+        <script src="./js/scripts.min.js"></script>
+        <script src="./js/main.js"></script>        
+    </body>
+</html>
