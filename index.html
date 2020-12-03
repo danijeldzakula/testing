@@ -1,17 +1,4 @@
-<?php
-require dirname(__FILE__) . '/_config.php';
-require $helperBase . '/main.php';
-$clickid = !empty($_GET['clickid']) ? $_GET['clickid'] : null;
-$clickid = htmlspecialchars($clickid);
-$code = !empty($_GET['code']) ? $_GET['code'] : null;
-if (!$code) {
-	$code = $offer_code;
-}
-if ($code && !$click_id) {
-	$code = htmlspecialchars($code);
-	$clickid = createClick($baseUrl, $code);
-}
-?><!doctype html>
+<!doctype html>
 <html lang="rs">
     <head>
     	<!-- Title -->
